@@ -1,97 +1,120 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
-			above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Chat"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="Rafael Rondão">
+	<nav>
+		<div>Projects</div>
+		<div>System</div>
+		<div>Rust</div>
+		<div>Books</div>
+		<div>Credits</div>
+	</nav>
+	<header>
+		<h1>Rafael Rondão</h1>
+		<h2>A professional developer interested in __________ .</h2>
+	</header>
+	<h2>GitHub projects</h2>
+	<nav style="font-size: x-large;">
+		<div>Website</div>
+		<div>Metroid Editor</div>
+		<div>Songs Listing</div>
+		<div>Neural Network</div>
+		<div>Twitch Hype</div>
+	</nav>
+	<section>
+		<article>
+			<div id="div-place-holder"></div>
+			<div>
+				<h3>This Website!</h3>
+				<h5>An Astro project for static generation of this Website.</h5>
+			</div>
+		</article>
+		<article>
+			<div>
+				<h3>A SuperMetroid map editor</h3>
+				<h5>
+					Written in Rust and using immediate GUI library egui,
+					enabling compiling for Desktop and Web through WASM.
+				</h5>
+			</div>
+			<div id="div-place-holder"></div>
+		</article>
+		<article>
+			<div id="div-place-holder"></div>
+			<div>
+				<h3>A song listing toy app</h3>
+				<h5>
+					Comparison implementation of the same App using Flutter and
+					native Kotlin.
+				</h5>
+			</div>
+		</article>
+		<article>
+			<div>
+				<h3>A multi-layer perceptron neural network</h3>
+				<h5>
+					Basic AI implementation in Rust for classifying hand written
+					digits.
+				</h5>
+			</div>
+			<div id="div-place-holder"></div>
+		</article>
+		<article>
+			<div id="div-place-holder"></div>
+			<div>
+				<h3>A twitch hype detector and compositor</h3>
+				<h5>
+					A Python script to detect hype moments in live stream and
+					clip them. Can also be used in VODs and create a timestamp
+					file. A compositor can join this moments through a timestamp
+					file into a single video.
+				</h5>
+			</div>
+		</article>
+	</section>
+	<footer>
+		This website was possible thanks too: <br />
+		Astro <br />
+		VSCode <br />
+		Github <br />
+		Pages
+	</footer>
 </Layout>
 
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+	nav {
+		margin: 1rem 20%;
+		display: flex;
+		justify-content: space-between;
 	}
-
-	h1 {
-		margin: 2rem 0;
+	header {
+		margin-top: 10rem;
+		margin-bottom: 12rem;
+		margin-left: 15%;
+		margin-right: 15%;
+		display: flex;
+		flex-direction: column;
 	}
-
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
+	h1,
+	h2,
+	footer {
+		margin: 0.5rem;
+		text-align: center;
 	}
-
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
+	section {
+		margin-left: 15%;
+		margin-right: 15%;
 	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
+	article {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		display: flex;
 	}
-
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
-
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
+	#div-place-holder {
+		border: solid;
+		display: block;
+		width: 5rem;
+		height: 5rem;
 	}
 </style>
