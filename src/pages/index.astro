@@ -103,10 +103,16 @@ import Layout from "../layouts/Layout.astro";
 		flex-direction: column;
 	}
 	#intro-div {
-		margin-left: -8px;
-		margin-right: -8px;
+		padding-top: 2px;
+		margin: -10px -8px 0px;
 		height: 800px;
 		background-image: linear-gradient(
+				to bottom,
+				hsl(0, 0%, 0%),
+				hsla(0, 0%, 0%, 0.3) 5%,
+				transparent
+			),
+			linear-gradient(
 				to top,
 				hsla(325, 100%, 50%, 0.8),
 				hsla(325, 100%, 50%, 0.4),
