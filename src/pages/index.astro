@@ -4,18 +4,39 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Rafael Rondão">
 	<div id="intro-div">
-		<nav id="header-nav">
-			<h4>Projects</h4>
-			<h4>System</h4>
-			<h4>Rust</h4>
-			<h4>Books</h4>
-			<h4>Credits</h4>
-		</nav>
 		<header>
 			<h1>Rafael Rondão</h1>
 			<h2>A software developer interested in __________ .</h2>
 		</header>
 	</div>
+
+	<nav id="header-nav">
+		<script>
+			const el = document.getElementById("header-nav");
+			const observer = new IntersectionObserver(
+				([e]) => {
+					if (
+						e.intersectionRect.top === 0 &&
+						e.intersectionRect.bottom !== 0 &&
+						e.intersectionRatio < 1
+					)
+						e.target.classList.add("pinned");
+					else if (e.intersectionRatio === 1)
+						e.target.classList.remove("pinned");
+				},
+				{ threshold: [1] }
+			);
+
+			if (el) {
+				observer.observe(el);
+			}
+		</script>
+		<h4>Projects</h4>
+		<h4>System</h4>
+		<h4>Rust</h4>
+		<h4>Books</h4>
+		<h4>Credits</h4>
+	</nav>
 
 	<h2>GitHub projects</h2>
 	<nav style="font-size: x-large;">
@@ -101,6 +122,19 @@ import Layout from "../layouts/Layout.astro";
 		margin-right: 15%;
 		display: flex;
 		flex-direction: column;
+	}
+	#header-nav {
+		position: sticky;
+		display: flex;
+		justify-content: space-evenly;
+		margin: auto;
+		top: -1px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.pinned {
+		background-color: hsl(245, 27%, 17%);
+		box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
 	}
 	#intro-div::after {
 		content: "";
