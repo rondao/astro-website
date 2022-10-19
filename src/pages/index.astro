@@ -1,52 +1,24 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Main from "../layouts/Main.astro";
+import Intro from "../layouts/Intro.astro";
+import Navigation from "../layouts/Navigation.astro";
 ---
 
-<Layout title="Rafael Rondão">
-	<div id="intro-div">
-		<header>
-			<h1>Rafael Rondão</h1>
-			<h2>A software developer interested in __________ .</h2>
-		</header>
-	</div>
+<Main title="Rafael Rondão">
+	<Intro>
+		<span slot="main-text">Rafael Rondão</span>
+		<span slot="sub-text">A software developer interested in</span>
+	</Intro>
+	<Navigation>
+		<p>Projects</p>
+		<p>System</p>
+		<p>Rust</p>
+		<p>Books</p>
+		<p>Credits</p>
+	</Navigation>
 
-	<nav id="header-nav">
-		<script>
-			const el = document.getElementById("header-nav");
-			const observer = new IntersectionObserver(
-				([e]) => {
-					if (
-						e.intersectionRect.top === 0 &&
-						e.intersectionRect.bottom !== 0 &&
-						e.intersectionRatio < 1
-					)
-						e.target.classList.add("pinned");
-					else if (e.intersectionRatio === 1)
-						e.target.classList.remove("pinned");
-				},
-				{ threshold: [1] }
-			);
-
-			if (el) {
-				observer.observe(el);
-			}
-		</script>
-		<h4>Projects</h4>
-		<h4>System</h4>
-		<h4>Rust</h4>
-		<h4>Books</h4>
-		<h4>Credits</h4>
-	</nav>
-
-	<h2>GitHub projects</h2>
-	<nav style="font-size: x-large;">
-		<div>Website</div>
-		<div>Metroid Editor</div>
-		<div>Songs Listing</div>
-		<div>Neural Network</div>
-		<div>Twitch Hype</div>
-	</nav>
 	<section>
+		<h3>GitHub projects</h3>
 		<article>
 			<div id="div-place-holder"></div>
 			<div>
@@ -104,78 +76,13 @@ import Layout from "../layouts/Layout.astro";
 		Github <br />
 		Pages
 	</footer>
-</Layout>
+</Main>
 
 <style>
-	* {
-		font-family: sans-serif;
-	}
-	nav {
-		margin: 1rem 20%;
-		display: flex;
-		justify-content: space-between;
-	}
-	header {
-		margin-top: 8rem;
-		margin-bottom: 12rem;
-		margin-left: 15%;
-		margin-right: 15%;
-		display: flex;
-		flex-direction: column;
-	}
-	#header-nav {
-		position: sticky;
-		display: flex;
-		justify-content: space-evenly;
-		margin: auto;
-		top: -1px;
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
-	.pinned {
-		background-color: hsl(245, 27%, 17%);
-		box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
-	}
-	#intro-div::after {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		height: 50px;
-		width: 100%;
-		border-top-left-radius: 50% 100%;
-		border-top-right-radius: 50% 100%;
-		background-color: hsl(245, 27%, 17%);
-	}
-	#intro-div {
-		position: relative;
-		padding-top: 2px;
-		margin: -10px -8px 0px;
-		height: 800px;
-		background-image: linear-gradient(
-				to bottom,
-				hsl(0, 0%, 0%),
-				hsla(0, 0%, 0%, 0.3) 5%,
-				transparent
-			),
-			linear-gradient(
-				to top,
-				hsla(325, 100%, 50%, 0.8),
-				hsla(325, 100%, 50%, 0.4),
-				hsla(325, 100%, 50%, 0) 40%
-			),
-			url("/sun.svg"), url("/stars.svg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position-x: center;
-	}
-	h1,
-	h2,
+	h3,
 	footer {
 		margin: 0.5rem;
 		text-align: center;
-	}
-	h4 {
-		margin: 0rem;
 	}
 	section {
 		margin-left: 15%;

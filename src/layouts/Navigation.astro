@@ -1,0 +1,40 @@
+<nav id="header-nav">
+    <script>
+        const el = document.getElementById("header-nav");
+        const observer = new IntersectionObserver(
+            ([e]) => {
+                if (
+                    e.intersectionRect.top === 0 &&
+                    e.intersectionRect.bottom !== 0 &&
+                    e.intersectionRatio < 1
+                )
+                    e.target.classList.add("pinned");
+                else if (e.intersectionRatio === 1)
+                    e.target.classList.remove("pinned");
+            },
+            { threshold: [1] }
+        );
+
+        if (el) {
+            observer.observe(el);
+        }
+    </script>
+    <slot />
+</nav>
+
+<style>
+    nav {
+        position: sticky;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 1rem -8px 3rem;
+        top: -1px;
+    }
+    h4 {
+        margin: 0.8rem auto;
+    }
+    .pinned {
+        background-color: hsl(245, 27%, 17%);
+        box-shadow: 0 2px 30px rgb(0 0 0 / 50%);
+    }
+</style>

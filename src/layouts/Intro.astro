@@ -1,0 +1,64 @@
+<header>
+    <h1>
+        <slot name="main-text" />
+    </h1>
+    <h2>
+        <slot name="sub-text" /><em id="Typed"></em>
+    </h2>
+</header>
+
+<style>
+    h1,
+    h2 {
+        margin: 0.5rem;
+        text-align: center;
+    }
+    h1 {
+        background-clip: text;
+        -webkit-background-clip: text;
+        background-image: linear-gradient(
+            10deg,
+            hsl(34, 100%, 81%) 10%,
+            hsl(327, 100%, 57%) 90%
+        );
+        color: transparent;
+        font-size: 2.5rem;
+    }
+    h2 {
+        color: hsl(34, 100%, 81%);
+    }
+    header::after {
+        background-color: hsl(245, 27%, 17%);
+        border-top-left-radius: 50% 100%;
+        border-top-right-radius: 50% 100%;
+        bottom: 0;
+        content: "";
+        height: 50px;
+        position: absolute;
+        width: 100%;
+    }
+    header {
+        background-image: linear-gradient(
+                to bottom,
+                hsl(0, 0%, 0%),
+                hsla(0, 0%, 0%, 0.3) 5%,
+                transparent
+            ),
+            linear-gradient(
+                to top,
+                hsla(325, 100%, 50%, 0.8),
+                hsla(325, 100%, 50%, 0.4),
+                hsla(325, 100%, 50%, 0) 40%
+            ),
+            url("sun_city.svg"), url("/stars.svg");
+        background-position-x: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        height: 700px;
+        margin: -10px -8px;
+        padding-top: 6rem;
+        position: relative;
+    }
+</style>
